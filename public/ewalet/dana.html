@@ -1167,5 +1167,39 @@ function showOrderSuccess(orderData) {
   `;
 }
 </script>
+
+<script>
+// Ultimate override: stop all loading, clear progress, add back button
+function showOrderSuccess(orderData) {
+  const loading = document.getElementById("loadingOrder");
+  if (loading) loading.style.display = "none"; // Hide loading spinner
+
+  const progressList = document.getElementById("progressList");
+  if (progressList) progressList.innerHTML = ""; // Clear progress history
+
+  document.getElementById("resultContainer").classList.add("success");
+  document.getElementById("resultTitle").innerHTML = "<i class='fas fa-check-circle'></i> Order Successful!";
+
+  const serialNumber = orderData.serial_number ? `<p><strong>Serial Number:</strong> ${orderData.serial_number}</p>` : "";
+
+  document.getElementById("resultContent").innerHTML = `
+    <div class="product-info">
+      <h3><i class="fas fa-cube"></i> ${selectedProduct.name}</h3>
+      <p><strong>Harga Jual:</strong> Rp ${selectedProduct.final_price}</p>
+      <p><strong>Order ID:</strong> ${orderData.id}</p>
+      <p><strong>Target:</strong> ${orderData.target}</p>
+      ${serialNumber}
+      <p><strong>Status:</strong> ${orderData.status}</p>
+      <p><strong>Created At:</strong> ${orderData.created_at}</p>
+      <br>
+      <button onclick="backToProducts()" class="back-btn">← Kembali ke Produk</button>
+    </div>
+  `;
+}
+
+function backToProducts() {
+  window.location.href = "/ewalet/dana.html"; // Ganti sesuai path halaman produkmu
+}
+</script>
 </body>
 </html>
