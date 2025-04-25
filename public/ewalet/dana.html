@@ -8,7 +8,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CanvasJS -->
-    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js">
+  // Tambahan: Simpan markup price dan tampilkan saat sukses order
+  function showOrderForm(code) {
+    selectedProduct = allProducts.find(p => p.code === code);
+    if (!selectedProduct) return alert("Produk tidak ditemukan");
+
+    selectedProduct.markup_price = selectedProduct.final_price;
+
+    document.getElementById("selectedProductInfo").innerHTML = `
+      <h3><i class="fas fa-cube"></i> ${selectedProduct.name}</h3>
+      <p><strong>Harga Jual:</strong> Rp ${selectedProduct.markup_price}</p>
+      <p><strong>Kode Produk:</strong> ${selectedProduct.code}</p>
+    `;
+
+    document.getElementById("orderFormContainer").style.display = "block";
+    document.getElementById("productsSection").style.display = "none";
+  }
+
+  function showOrderSuccess(orderData) {
+    document.getElementById("resultContainer").classList.add("success");
+    document.getElementById("resultTitle").innerHTML = `<i class='fas fa-check-circle'></i> Order Successful!`;
+    document.getElementById("resultContent").innerHTML = `
+      <p><strong>Layanan:</strong> ${selectedProduct.name}</p>
+      <p><strong>Harga Jual:</strong> Rp ${selectedProduct.markup_price}</p>
+      <p><strong>Target:</strong> ${orderData.target}</p>
+      <p><strong>Status:</strong> ${orderData.status}</p>
+    `;
+    createConfetti();
+  }
+
+</script>
     <style>
         :root {
             --primary: #00AEEF;
