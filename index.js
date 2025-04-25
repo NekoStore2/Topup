@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const PORT = process.env.PORT || 3000;
 const ATLAN_API_KEY = 'dNDxxF95ALgKRLMD7ExcHnBYHMZgoWg9B0RrwidpmoqRpOWjjXhmlTXP7pqzbDSznihEPRmDjqMSnhzvCgcGrKodHU1XSyZP8QSD';
 const BASE_URL = 'https://atlantich2h.com';
-const UNTUNG_PERSEN = 10;
+const UNTUNG_PERSEN = 30;
 
 function generateReffId() {
     return uuidv4().replace(/-/g, '').substring(0, 16);
