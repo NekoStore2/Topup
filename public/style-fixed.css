@@ -1,0 +1,30 @@
+
+/* Style Produk Grid Kecil */
+#produk {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+    padding: 10px;
+}
+.card, .produk-item, .product-card {
+    background: #1f2937;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.card:hover, .produk-item:hover, .product-card:hover {
+    background: #2563eb;
+    transform: translateY(-5px);
+}
+.product-name {
+    font-size: 12px;
+    font-weight: bold;
+}
+.product-price {
+    font-size: 11px;
+    color: #d1d5db;
+}
