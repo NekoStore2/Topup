@@ -1,9 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<style>
+/* Header Persegi Panjang Miring */
+header {
+    position: relative;
+    background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);
+    padding: 30px 20px 70px 20px;
+    text-align: center;
+    animation: floating 5s ease-in-out infinite alternate;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(8px); }
+}
+
+/* Footer Copyright */
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+    color: inherit; /* follow body color */
+}
+
+/* Scroll Buttons */
+.scroll-button {
+    position: fixed;
+    right: 20px;
+    padding: 12px;
+    background: #0ea5e9;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: none;
+}
+#scrollTopBtn {
+    bottom: 80px;
+}
+#scrollBottomBtn {
+    bottom: 20px;
+}
+
+/* Toggle Theme */
+.toggle-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+}
+</style>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOBILE LEGENDS Products - Premium Digital Wallet</title>
+    <title>MOBILE LEGENDS  - Premium Digital Wallet</title>
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -964,7 +1026,7 @@
 <header style="text-align:center; background:linear-gradient(135deg, #00c851, #007e33); padding:30px; border-radius:18px; margin:20px auto; width:90%; display:flex; flex-direction:column; align-items:center; box-shadow:0 8px 20px rgba(0,0,0,0.2);">
     <img src="https://upload.wikimedia.org/wikipedia/id/2/26/Free_Fire_Game.jpg" alt="Free Fire" style="width:70px;height:70px;border-radius:50%;object-fit:cover;margin-bottom:12px;">
     <div class="logo" style="font-size:20px;font-weight:bold;color:#ffffff;display:flex;align-items:center;gap:8px;">
-        <i class="fas fa-wallet" style="font-size:22px;color:#ffffff;"></i> MOBILE LEGENDS Products
+        <i class="fas fa-wallet" style="font-size:22px;color:#ffffff;"></i> MOBILE LEGENDS
     </div>
     <p class="tagline" style="font-size:13px;color:#e0f2f1;margin-top:6px;">Top up your Free Fire account fast and safe!</p>
     
@@ -991,7 +1053,7 @@
             </div>
             
             <div class="price-chart">
-                <h2 class="section-title">Price Comparison</h2>
+                <h2 class="section-title">Daftar Harga</h2>
                 <div class="chart-container" id="priceChart" style="display:none;">
                     <div class="loading">
                         <i class="fas fa-spinner"></i> Loading chart data...
@@ -1058,9 +1120,7 @@
             </div>
         </div>
         
-        <div class="products-section" id="productsSection">
-            <div class="products-header">
-                <h2 class="section-title">Available Products</h2>
+
                 <div class="search-box">
                     <i class="fas fa-search"></i>
                     <input type="text" id="searchInput" placeholder="Search products...">
@@ -1230,5 +1290,91 @@ function backToProducts() {
   window.location.href = "/ewalet/ml.html"; // Atur sesuai path halaman produk kamu
 }
 </script>
+
+<!-- Scroll & Theme Buttons -->
+<button id="scrollTopBtn" class="scroll-button" onclick="scrollToTop()">↑</button>
+<button id="scrollBottomBtn" class="scroll-button" onclick="scrollToBottom()">↓</button>
+<button class="toggle-theme" onclick="toggleTheme()">☀️/🌙</button>
+
+<script>
+function toggleTheme() {
+    if (document.body.style.background === 'white') {
+        document.body.style.background = '#0f172a';
+        document.body.style.color = '#f1f5f9';
+    } else {
+        document.body.style.background = 'white';
+        document.body.style.color = '#0f172a';
+    }
+}
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function scrollToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+window.onscroll = function() {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const scrollBottomBtn = document.getElementById('scrollBottomBtn');
+    if (window.scrollY > 300) {
+        scrollTopBtn.style.display = 'block';
+        scrollBottomBtn.style.display = 'none';
+    } else {
+        scrollTopBtn.style.display = 'none';
+        scrollBottomBtn.style.display = 'block';
+    }
+};
+</script>
+
+
+<!-- Tombol Scroll Top dan Bottom Smart -->
+<style>
+.scroll-button {
+    position: fixed;
+    right: 20px;
+    padding: 12px;
+    background: #0ea5e9;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: none;
+}
+#scrollTopBtn {
+    bottom: 80px;
+}
+#scrollBottomBtn {
+    bottom: 20px;
+}
+</style>
+
+<button id="scrollTopBtn" class="scroll-button" onclick="scrollToTop()">↑</button>
+<button id="scrollBottomBtn" class="scroll-button" onclick="scrollToBottom()">↓</button>
+
+<script>
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function scrollToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+window.addEventListener('scroll', function() {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const scrollBottomBtn = document.getElementById('scrollBottomBtn');
+    if (window.scrollY > 300) {
+        scrollTopBtn.style.display = 'block';
+        scrollBottomBtn.style.display = 'none';
+    } else {
+        scrollTopBtn.style.display = 'none';
+        scrollBottomBtn.style.display = 'block';
+    }
+});
+</script>
+
 </body>
 </html>
