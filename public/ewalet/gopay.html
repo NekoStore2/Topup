@@ -988,37 +988,21 @@
     </div>
 </header>
         
-        <div class="dashboard">
-            <div style="display:none;">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-coins"></i>
-                    </div>
-                    <div class="stat-text">
-                        <h3>Products Available</h3>
-                        <p id="total-products">0</p>
-                    </div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="stat-text">
-                        <h3>Active Products</h3>
-                        <p id="active-products">0</p>
-                    </div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-tags"></i>
-                    </div>
-                    <div class="stat-text">
-                        <h3>Lowest Price</h3>
-                        <p id="lowest-price">Rp 0</p>
+    <canvas id="canvas-bg"></canvas>
+    <div class="container">
                     </div>
                 </div>
             </div>
-            
+            <div class="price-chart">
+                <h2 class="section-title">Daftar Harga</h2>
+                <div class="chart-container" id="priceChart" style="display:none;">
+                    <div class="loading">
+                        <i class="fas fa-spinner"></i> Loading chart data...
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         
         <!-- Order Form Container (Initially Hidden) -->
         <div class="order-form-container" id="orderFormContainer">
@@ -1078,9 +1062,6 @@
             </div>
         </div>
         
-        <div class="products-section" id="productsSection">
-            <div class="products-header">
-                <h2 class="section-title">Available Products</h2>
                 <div class="search-box">
                     <i class="fas fa-search"></i>
                     <input type="text" id="searchInput" placeholder="Search products...">
